@@ -10,7 +10,9 @@
 
 ## วิธีการทำการทดลอง
 1. เขียนโปรแกรมลงบนmicrocontroller จากนั้นต่อmicrocontroller เข้ากับserial port บนตัวadapter programmer ที่ต่อกับสายUSBไว้เรียบร้อยแล้ว
-![image](https://user-images.githubusercontent.com/80879818/112276744-a6c69980-8cb3-11eb-9dde-00ebb65447c3.jpg)
+
+![1](https://user-images.githubusercontent.com/80879818/112277591-7fbc9780-8cb4-11eb-8f58-9c6f01d03fe1.jpg)
+
 
 ## การบันทึกผลการทดลอง
 

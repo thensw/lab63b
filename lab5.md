@@ -66,7 +66,7 @@ void loop(void){
 > * บรรทัดที่ 5และ6 ต้องใส่ชื่อและรหัสwifi
 2. ต่อไมโครคอนโทรลเลอร์เข้ากับตัวprogrammer
 
-![34](https://user-images.githubusercontent.com/80879818/112374420-a7dbe300-8d14-11eb-986b-0d5a6e19da30.jpg)
+![23](https://user-images.githubusercontent.com/80879818/112378777-e9bb5800-8d19-11eb-9544-a420a182e660.jpg)
 
 3. อัปโหลดโปรแกรมเข้าสู่ไมโครคอนโทรลเลอร์
 * พิมพ์ pio run -t upload

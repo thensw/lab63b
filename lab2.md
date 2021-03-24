@@ -3,7 +3,7 @@
 
 ## อุปกรณ์ที่ใช้
 1. ไมโครคอนโทรลเลอร์ที่มีwifiในตัวเอง (ESP01)
-2. สายUSB
+2. สายUSB(ไฟเลี้ยง)
 3. programmer / usb to serial
 ## ศึกษาข้อมูลเบื้องต้น
 คลิปตัวอย่างการทดลอง https://www.youtube.com/watch?v=yBjab0UNuB8

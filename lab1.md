@@ -23,7 +23,7 @@
 ![1](https://user-images.githubusercontent.com/80879818/112281393-949b2a00-8cb8-11eb-90c3-45d8426392c2.jpg)
 
 * เลือกโปรแกรมตัวอย่างที่ต้องการอัปโหลด (ในที่นี้จะเลือกโปรแกรมที่1)
-  * พิมพ์ cd 01_Serial Monitor
+  * พิมพ์ cd 01_Serial-Monitor
   * พิมพ์ vi src/main.cpp (เพื่อแสดงโค้ดที่ใช้เขียนโปรแกรมที่เลือกไว้)
  ```javascript
  #include <Arduino.h>
@@ -42,6 +42,7 @@ void loop()
 	delay(1000);
 }
 ```
+i think `<addr>` for
 ## การบันทึกผลการทดลอง
 
 ## อภิปรายผลการทดลอง

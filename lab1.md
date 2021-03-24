@@ -7,7 +7,7 @@
 3. programmer adapter usb to serial
 
 ## ศึกษาข้อมูลเบื้องต้น
-
+คลิปตัวอย่างการทดลอง https://www.youtube.com/watch?v=NLIUsWLEpmg
 ## วิธีการทำการทดลอง
 1. เขียนโปรแกรมลงบนmicrocontroller จากนั้นต่อmicrocontroller เข้ากับserial port บนตัวadapter programmer ที่ต่อกับสายUSBไว้เรียบร้อยแล้ว
 

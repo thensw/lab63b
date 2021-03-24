@@ -11,7 +11,9 @@
 5. หลอดไฟLEDเปล่งแสง
 6. relay
 ## ศึกษาข้อมูลเบื้องต้น
-คลิปตัวอย่างการทดลอง https://www.youtube.com/watch?v=CCnN1WJsXQY
+คลิปตัวอย่างการทดลอง 
+* https://www.youtube.com/watch?v=CCnN1WJsXQY
+* https://www.youtube.com/watch?v=6JnhaUILGuw
 ## วิธีการทำการทดลอง
 1. ต่อadapterเข้ากับพอร์ท0(สายสีขาว),1(สายสีเหลือง) และนำพอร์ทต่อเข้ากับหลอดLEDเปล่งแสง (เพื่อดูผลลัพธ์จากการทดลอง)
 

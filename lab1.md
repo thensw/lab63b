@@ -25,11 +25,11 @@
 * เลือกโปรแกรมตัวอย่างที่ต้องการอัปโหลด (ในที่นี้จะเลือกโปรแกรมที่1)
   * พิมพ์ cd 01_Serial Monitor
   * พิมพ์ vi src/main.cpp (เพื่อแสดงโค้ดที่ใช้เขียนโปรแกรมที่เลือกไว้)
-  > #include <Arduino.h>
+> #include <Arduino.h>
 
-int cnt = 0;
+> int cnt = 0;
 
-void setup()
+> void setup()
 {
 	Serial.begin(115200);
 }

@@ -2,13 +2,73 @@
 ## วัตถุประสงค์
 
 ## อุปกรณ์ที่ใช้
-
+1. ไมโครคอนโทรลเลอร์ที่มีwifiในตัวเอง (ESP01)
+2. สายUSB
+3. programmer adapter usb to serial
 ## ศึกษาข้อมูลเบื้องต้น
-
+คลิปตัวอย่างการทดลอง https://www.youtube.com/watch?v=yBjab0UNuB8
 ## วิธีการทำการทดลอง
+1. ต่อไมโครคอนโทรลเลอร์เข้ากับ USB to serial port
+
+![11](https://user-images.githubusercontent.com/80879818/112299247-34ad7f00-8cca-11eb-941d-486d65925a66.jpg)
+
+2. เปิดโปรแกรมตัวอย่าง (ในที่นี้เลือกโปรแกรมที่2)
+* พิมพ์ cd pattani (ชื่อโฟลเดอร์ที่จะเปิด)
+* พิมพ์ cd 02_Scan-Wifi
+* พิมพ์ vi src/main.cpp (เพื่อแสดงโค้ดที่ใช้เขียนโปรแกรมที่เลือกไว้)
+```javascript
+#include <Arduino.h>
+#include <ESP8266WiFi.h>
+
+int cnt = 0;
+
+void setup()
+{
+	Serial.begin(115200);
+	WiFi.mode(WIFI_STA);
+	WiFi.disconnect();
+	delay(100);
+	Serial.println("\n\n\n");
+}
+
+void loop()
+{
+	Serial.println("========== เริ่มต้นแสกนหา Wifi ===========");
+	int n = WiFi.scanNetworks();
+	if(n == 0) {
+		Serial.println("NO NETWORK FOUND");
+	} else {
+		for(int i=0; i<n; i++) {
+			Serial.print(i + 1);
+			Serial.print(": ");
+			Serial.print(WiFi.SSID(i));
+			Serial.print(" (");
+			Serial.print(WiFi.RSSI(i));
+			Serial.println(")");
+			delay(10);
+		}
+	}
+	Serial.println("\n\n");
+}
+```
+> จากโค้ดเบื้องต้น แบ่งเป็น 2 ส่วน คือ
+> * set up จะเป็นการset wifi ให้พร้อมทำงาน
+> * loop จะถูกทำซ้ำ
+>   * เริ่มด้วยการแสดงผลว่า 'เริ่มต้นแสกนหา Wifi'
+3. อัปโหลดโปรแกรมเข้าสู่ไมโครคอนโทรลเลอร์
+* พิมพ์ pio run -t upload
+> ในขณะที่โปรแกรมกำลังอัปโหลด กดปุ่มสีดำบนตัวadapter เพื่อให้ตัวไมโครคอนโทรลเลอร์รับโปรแกรมใหม่เข้าไป จากนั้น กดปุ่มสีแดงบนตัวadapter เพื่อทำการรีเซต
+
+![22](https://user-images.githubusercontent.com/80879818/112305399-3a5a9300-8cd1-11eb-83af-a20cf9048276.jpg)
+
+4. แสดงผลลัพธ์จากโปรแกรมผ่านคอมพิวเตอร์
+* พิมพ์ pio device monitor
 
 ## การบันทึกผลการทดลอง
+สังเกตเห็นว่าโปรแกรมจะแสดงผลลัพธ์วนลูปไปเรื่อยๆ โดยจะแสกนหาwifiในบริเวณนั้น ซึ่งจะแสดงผลผ่านจอคอมพิวเตอร์ ดังภาพ
+
+![33](https://user-images.githubusercontent.com/80879818/112306369-4f83f180-8cd2-11eb-9478-be8dee14309d.jpg)
 
 ## อภิปรายผลการทดลอง
-
+หลังจากที่อัปโหลดโปรแกรมลงไมโครคอนโทรลเลอร์แล้วมีคำสั่งให้แสดงผลลัพธ์ จะเกิดการวนลูปในการค้นหาwifiในบริเวณนั้นไปเรื่อยๆ ซึ่งขึ้นอยู่กับความแรงของสัญญาณwifiนั้นๆ
 ## คำถามหลังการทดลอง

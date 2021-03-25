@@ -106,6 +106,8 @@ void loop()
 
 ### หลังต่อsensorแสง
 
+![2](https://user-images.githubusercontent.com/80879818/112414461-a9c59680-8d54-11eb-8600-417808b4ec7b.jpg)
+
 การกระทำ | ค่าINPUTที่อ่านได้ | ความสว่าง
 -------- | ------- | --------
 บังแสงsensor | 1 | ไฟดับ

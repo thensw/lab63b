@@ -10,9 +10,9 @@
 คลิปตัวอย่างการทดลอง https://www.youtube.com/watch?v=T26DVHePlTs
 ## วิธีการทำการทดลอง
 1. เปิดโปรแกรมตัวอย่าง (ในที่นี้เลือกโปรแกรมที่6)
-พิมพ์ cd pattani (ชื่อโฟลเดอร์ที่จะเปิด)
-พิมพ์ cd 06_Wifi-AP-Web-Server
-พิมพ์ vi src/main.cpp (เพื่อแสดงเนื้อหาโปรแกรม)
+* พิมพ์ cd pattani (ชื่อโฟลเดอร์ที่จะเปิด)
+* พิมพ์ cd 06_Wifi-AP-Web-Server
+* พิมพ์ vi src/main.cpp (เพื่อแสดงเนื้อหาโปรแกรม)
 ```javascript
 #include <ESP8266WiFi.h>
 //#include <WiFiClient.h>

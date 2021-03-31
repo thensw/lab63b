@@ -36,46 +36,70 @@ ESP8266WebServer server(80);
 int d = 1000//5;
 int cnt = 0;
 
-void setup()
+void setup(void)
 {
-	Serial.begin(115200);
-	pinMode(0, INPUT);
-	pinMode(2, OUTPUT);
-	Serial.println("\n\n\n");
-}
+ Serial.begin(115200);
+ pinMode(0, INPUT);
+ pinMode(2, OUTPUT);
+ Serial.println("\n\n\n");
+ Serial.begin(115200);
+	WiFi.mode(WIFI_STA);
+	WiFi.begin(ssid, password);
+	while (WiFi.status() != WL_CONNECTED) {
+		delay(5*100);
+		Serial.print(".");
+	}
+	Serial.print("\n\nIP address: ");
+	Serial.println(WiFi.localIP());
 
+	server.onNotFound([]() {
+		server.send(404, "text/plain", "Path Not Found");
+	});
+
+	server.on("/", []() {
+		String msg = "Hello";
+		server.send(200, "text/plain");
+	});
+
+	server.begin();
+	Serial.println("HTTP server started");
+}
 void loop()
 {
-	int val = digitalRead(0);
-	Serial.printf("======= read %d\n", val);
-	if(val==1) {
-		digitalWrite(2, LOW);
-      server.onNotFound([]() {
-		    server.send(404, "text/plain", "Path Not Found");
-	    });
-      
-	} else {
-		digitalWrite(2, HIGH);
-      WiFi.mode(WIFI_STA);
-	    WiFi.begin(ssid, password);
-  	  while (WiFi.status() != WL_CONNECTED) {
-		  delay(5*100);
-		  Serial.print(".");
-	    }
-	    Serial.print("\n\nIP address: ");
-	    Serial.println(WiFi.localIP());
-
-	    server.on("/", []() {
-		    server.send(200, "text/plain");
-	    });
-
-	    server.begin();
-	    Serial.println("HTTP server started");
-	}
+ server.handleClient();
+ int val = digitalRead(0);
+ Serial.printf("======= read %d\n", val);
+ if(val==1) {
+  digitalWrite(2, LOW);
+ } else {
+  digitalWrite(2, HIGH);
+ }
 delay(d);
 }
 ```
+> จากโค้ดเบื้องต้น แบ่งข้อมูลเป็น2ส่วน ดังนี้
+> * set up
+>   * เซตให้พอร์ท0(สายสีขาว) คือ INPUT
+>   * เซตให้พอร์ท2(สายสีเหลือง) คือ OUTPUT
+>   * เป็นการเชื่อมต่อกับwifiที่เลือกไว้
+>   * set up web server
+>   	* เริ่มต้นด้วย 'Hello'
+> * loop
+>   * 'int val = digitalRead(0)' เป็นการอ่านข้อมูลINPUTจากพอร์ท0 ซึ่งเป็นข้อมูลดิจิตอล(0,1)
+>   * ถ้าINPUT=1 , ไฟจะดับ = 
+>   * ถ้าINPUT=0 , ไฟจะติด
+>   * delay(d) เป็นคำสั่งให้วนลูปทุกๆ 1000//5 = 200 ms
+3. อัปโหลดโปรแกรมเข้าสู่ไมโครคอนโทรลเลอร์
+* พิมพ์ pio run -t upload
+  * ในขณะที่โปรแกรมกำลังอัปโหลด `กดปุ่มสีดำบนตัวprogrammer` เพื่อให้ตัวไมโครคอนโทรลเลอร์รับโปรแกรมใหม่เข้าไป
+  * จากนั้น `กดปุ่มสีแดงบนตัวprogrammer` เพื่อทำการรีเซต
+  * เมื่อโปรแกรมถูกอัปโหลดเสร็จสิ้นแล้ว จะทำการตรวจสอบที่พอร์ท0ทันทีเลยว่ามีINPUTเข้ามาหรือไม่
+4. แสดงผลลัพธ์จากโปรแกรมผ่านคอมพิวเตอร์
+* พิมพ์ pio device monitor
+* กดปุ่ม reset เพื่อเริ่มการทำงานใหม่ โดยจะเริ่มจากการค้นหาwifi , เชื่อมต่อwifi และแสดงผลip address
+
 ## การบันทึกผลการทดลอง
+
 ## อภิปรายผลการทดลอง
 ## ประโยชน์จากการทดลอง
 ## คำถามหลังการทดลอง

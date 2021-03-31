@@ -9,6 +9,7 @@
 3. programmer / usb to serial
 4. adapter
 5. หลอดไฟLEDเปล่งแสง
+6. เร้าเตอร์ปล่อยสัญญาณwifi
 ## ศึกษาข้อมูลเบื้องต้น
 1. คลิปตัวอย่างการทดลองที่4และ5
 * (4) https://www.youtube.com/watch?v=nFqoZT26U5k
